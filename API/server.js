@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser")
+const path = require('path');
 const fs = require("fs");
 const {verifyToken} = require("./Auth/auth")
 const PORT = process.env.PORT || 3001
@@ -24,6 +25,7 @@ const accessLogStream = fs.createWriteStream("morgan.log", { flags: "a" });
 const MONGODB_URI = process.env.NODE_ENV ? process.env.PROD_MONGO_URI : 'mongodb://localhost/Project5DB' 
 console.log(MONGODB_URI)
 
+
 mongoose.set('useCreateIndex', true)
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 	console.log(err || `Connected to MongoDB.`)
@@ -32,13 +34,19 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 app.use(bodyParser())
 app.use(cookieParser())
 app.use(morgan("combined", { stream: accessLogStream }));
-app.use(proxy("/api/*", { target: `http://localhost:${PORT}/` }));
+// app.use(proxy("/api/*", { target: `https://https://project5ecommerce.herokuapp.com/:${PORT}/` }));
+app.use(express.static("../React-Project/build"));
+
 
 // disables certain headers so they can be private
 
 app.use(helmet());
 
 // app.use(verifyToken)
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../React-Project/build/index.html"));
+});
 
 app.get("api/users", getUsers);
 
