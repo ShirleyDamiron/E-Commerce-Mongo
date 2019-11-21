@@ -17,7 +17,7 @@ class SignUp extends React.Component {
   onFormSubmit = evt => {
     evt.preventDefault();
     const { email, password } = this.state;
-    fetch("/newUser", {
+    fetch("/api/newUser", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {

@@ -17,7 +17,7 @@ class SignIn extends React.Component {
   onFormSubmit = evt => {
     evt.preventDefault();
     const { email, password } = this.state;
-    fetch("/authenticateUser", {
+    fetch("/api/authenticateUser", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {

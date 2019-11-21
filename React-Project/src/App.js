@@ -30,7 +30,7 @@ class App extends React.Component {
     // fetch("/products")
     //   .then(response => response.json())
     //   .then(response => this.setState({products: response}));
-    fetch("/checkToken")
+    fetch("/api/checkToken")
       .then(response => response.json())
       .then(response => {
         if (response.status === 200) {
@@ -89,7 +89,7 @@ class App extends React.Component {
   };
 
   signOut = () => {
-    fetch("/signOut", { method: "GET" }).then(res => {
+    fetch("/api/signOut", { method: "GET" }).then(res => {
       window.location.reload();
     });
   };

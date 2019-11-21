@@ -2,6 +2,7 @@
   "name": "reactecommerce",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
@@ -15,7 +16,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": "react-app"
   },
