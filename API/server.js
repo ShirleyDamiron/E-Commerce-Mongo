@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser")
 const fs = require("fs");
 const {verifyToken} = require("./Auth/auth")
+const PORT = process.env.PORT || 3001
 const {
   getUsers,
   getUserById,
@@ -31,6 +32,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 app.use(bodyParser())
 app.use(cookieParser())
 app.use(morgan("combined", { stream: accessLogStream }));
+app.use(proxy("/api/*", { target: `http://localhost:${PORT}/` }));
 
 // disables certain headers so they can be private
 
@@ -38,27 +40,26 @@ app.use(helmet());
 
 // app.use(verifyToken)
 
-app.get("/users", getUsers);
+app.get("api/users", getUsers);
 
-app.get("/users/userFilter/:id", getUserById);
+app.get("api/users/userFilter/:id", getUserById);
 
-app.post("/newUser", newUsers);
+app.post("api/newUser", newUsers);
 
-app.put("/updateUser" , updateUser)
+app.put("api/updateUser" , updateUser)
 
-app.delete("/deleteUser/:user_id" , deleteUser)
+app.delete("api/deleteUser/:user_id" , deleteUser)
 
-app.post("/authenticateUser", authenticateUser)
+app.post("api/authenticateUser", authenticateUser)
 
-app.post("/authentication", authenticate)
+app.post("api/authentication", authenticate)
 
-app.get("/signOut", verifyToken, signOut)
+app.get("api/signOut", verifyToken, signOut)
 
-app.get("/checkToken", verifyToken, function(req, res){
+app.get("api/checkToken", verifyToken, function(req, res){
   res.json({status: 200});
 })
 
-const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log("Listening on port 3001");
 });
