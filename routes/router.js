@@ -7,7 +7,9 @@ const {
   deleteUser,
   authenticate,
   authenticateUser,
-  signOut
+  signOut,
+  allProducts,
+  newProduct
 } = require("./routes.js");
 
 const {verifyToken} = require("../Auth/auth")
@@ -23,6 +25,10 @@ router.get("/checkToken", verifyToken, function(req, res){
 })
 
 router.get("/users", getUsers);
+
+router.get("/products", verifyToken, allProducts)
+
+router.post("/newProduct", verifyToken, newProduct)
 
 router.get("/users/userFilter/:id", getUserById);
 

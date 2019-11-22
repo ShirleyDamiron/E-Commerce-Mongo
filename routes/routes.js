@@ -1,5 +1,5 @@
 // const connection = require("./connection.js");
-const {User} = require("../Models/model.js");
+const {User, Product} = require("../Models/model.js");
 const {signToken} = require("../Auth/auth")
 require("dotenv").config();
 
@@ -23,7 +23,7 @@ exports.newUsers = (req, res) => {
   User.create({ email, password }, (err, user) => {
     if (err) return res.json({ success: false, code: err.code });
     const token = signToken(user)
-    res.cookie("token", token, {httpOnly: true});
+    res.cookie("token", token, {httpOnly: true}).sendStatus(200);
   });
 };
 
@@ -32,7 +32,7 @@ exports.authenticateUser = (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email }, (err, user) => {
     if (err) {
-      console.error(err);
+      console.log(err);
       res.status(500).json({
         error: "Internal error please try again"
       });
@@ -87,6 +87,22 @@ exports.authenticate = (req, res) => {
     res.json({ success: true, message: "Token attached.", token });
   });
 };
+
+exports.newProduct = (req, res) => {
+  const {caption, price, filterType, src} = req.body
+  Product.create({ caption, price, filterType, src}, (err, product) => {
+    if (err) {
+      return res.json({ success: false, code: err.code })
+    };
+    return res.json({ success: true, status: 200})
+  });
+}
+
+exports.allProducts = (req, res) => {
+  Product.find({}, (err, products) => {
+    res.json(products);
+  });
+}
 
 exports.signOut = (req, res) => {
   res.cookie("token", "", {expires: new Date(0), httpOnly:true}).sendStatus(200);

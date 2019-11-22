@@ -27,9 +27,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // fetch("/products")
-    //   .then(response => response.json())
-    //   .then(response => this.setState({products: response}));
     fetch("/api/checkToken")
       .then(response => response.json())
       .then(response => {
@@ -59,33 +56,6 @@ class App extends React.Component {
 
     this.setState({
       currentIndex: this.state.currentIndex + 1
-    });
-  };
-  //   filter
-  filterProducts = () => {
-    let products = [...this.state.products];
-    const filterType = document.querySelector(".filterType").value;
-    const filterPrice = document.querySelector(".filterPrice").value;
-
-    if (filterType !== "none") {
-      products = products.filter(product => product.Category === filterType);
-    }
-
-    if (filterPrice !== "none") {
-      if (filterPrice === "low") {
-        products.sort(
-          (firstProduct, secondProduct) =>
-            Number(firstProduct.Price) - Number(secondProduct.Price)
-        );
-      } else if (filterPrice === "high") {
-        products.sort(
-          (firstProduct, secondProduct) =>
-            Number(secondProduct.Price) - Number(firstProduct.Price)
-        );
-      }
-    }
-    this.setState({
-      filteredProducts: products
     });
   };
 
@@ -121,11 +91,7 @@ class App extends React.Component {
             path="/products"
             render={() => {
               return isUserLoggedIn ? (
-                <Products
-                  products={this.state.products}
-                  filterProductsFunc={this.filterProducts}
-                  filteredProducts={this.state.filteredProducts}
-                />
+                <Products />
               ) : (
                 <ErrorPage />
               );
