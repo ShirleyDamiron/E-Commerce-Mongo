@@ -36,7 +36,6 @@ Client scripting language used for creating websites.
 
 ```<script>
 console.log("Hello World");
-</script>
 ```
 
 ## Contributing
