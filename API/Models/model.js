@@ -2,14 +2,15 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
+    email:    { type: String, required: true, unique: true },
     password: { type: String, required: true }
 })
 
 const products = new mongoose.Schema({
-	name:     { type: String, required: true},
-	price:    { type: Number, required: true},
-	category: { type: String, required: true}
+	caption:    { type: String, required: true},
+	price:      { type: Number, required: true},
+	filterType: { type: String, required: true},
+	src:        {type: String, required: true}
 })
 
 userSchema.methods.generateHash = function(password) {
@@ -34,6 +35,7 @@ userSchema.pre('save', function(next) {
 
 const Product = mongoose.model('Product', products)
 const User = mongoose.model('User', userSchema)
+
 module.exports = {
 	User,
 	Product

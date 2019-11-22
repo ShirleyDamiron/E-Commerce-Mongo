@@ -31,22 +31,14 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 	console.log(err || `Connected to MongoDB.`)
 })
 
+app.use(express.static("../React-Project/build"));
 app.use(bodyParser())
 app.use(cookieParser())
 app.use(morgan("combined", { stream: accessLogStream }));
-// app.use(proxy("/api/*", { target: `https://https://project5ecommerce.herokuapp.com/:${PORT}/` }));
-app.use(express.static("../React-Project/build"));
-
 
 // disables certain headers so they can be private
 
 app.use(helmet());
-
-// app.use(verifyToken)
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../React-Project/build/index.html"));
-});
 
 app.get("/api/users", getUsers);
 
@@ -62,11 +54,15 @@ app.post("/api/authenticateUser", authenticateUser)
 
 app.post("/api/authentication", authenticate)
 
-app.get("/api/signOut", verifyToken, signOut)
+app.get("/api/signOut", signOut)
 
 app.get("/api/checkToken", verifyToken, function(req, res){
   res.json({status: 200});
 })
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../React-Project/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log("Listening on port 3001");

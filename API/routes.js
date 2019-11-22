@@ -1,6 +1,5 @@
 // const connection = require("./connection.js");
-const User = require("./models/user.js");
-const jwt = require("jsonwebtoken");
+const {User} = require("./Models/model.js");
 const {signToken} = require("./Auth/auth")
 require("dotenv").config();
 
@@ -24,7 +23,7 @@ exports.newUsers = (req, res) => {
   User.create({ email, password }, (err, user) => {
     if (err) return res.json({ success: false, code: err.code });
     const token = signToken(user)
-    res.cookie("token", token, {httpOnly: true}).sendStatus(200);
+    res.cookie("token", token, {httpOnly: true});
   });
 };
 
