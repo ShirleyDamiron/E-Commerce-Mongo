@@ -4,7 +4,7 @@ App made with React JS. Open sourced Javascript library used for building User I
 
 
 ## Page
-![](E-Commerce-Mongo/React-Project/public/img/sitPage.png)
+![](/React-Project/public/img/sitPage.png)
  
 ## Installations
 
