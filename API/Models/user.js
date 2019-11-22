@@ -6,6 +6,12 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true }
 })
 
+const products = new mongoose.Schema({
+	name:     { type: String, required: true},
+	price:    { type: Number, required: true},
+	category: { type: String, required: true}
+})
+
 userSchema.methods.generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
 }
@@ -26,6 +32,9 @@ userSchema.pre('save', function(next) {
 	}
 })
 
-
+const Product = mongoose.model('Product', products)
 const User = mongoose.model('User', userSchema)
-module.exports = User
+module.exports = {
+	User,
+	Product
+}

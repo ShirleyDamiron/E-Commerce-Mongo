@@ -48,23 +48,23 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "../React-Project/build/index.html"));
 });
 
-app.get("api/users", getUsers);
+app.get("/api/users", getUsers);
 
-app.get("api/users/userFilter/:id", getUserById);
+app.get("/api/users/userFilter/:id", getUserById);
 
-app.post("api/newUser", newUsers);
+app.post("/api/newUser", newUsers);
 
-app.put("api/updateUser" , updateUser)
+app.put("/api/updateUser" , updateUser)
 
-app.delete("api/deleteUser/:user_id" , deleteUser)
+app.delete("/api/deleteUser/:user_id" , deleteUser)
 
-app.post("api/authenticateUser", authenticateUser)
+app.post("/api/authenticateUser", authenticateUser)
 
-app.post("api/authentication", authenticate)
+app.post("/api/authentication", authenticate)
 
-app.get("api/signOut", verifyToken, signOut)
+app.get("/api/signOut", verifyToken, signOut)
 
-app.get("api/checkToken", verifyToken, function(req, res){
+app.get("/api/checkToken", verifyToken, function(req, res){
   res.json({status: 200});
 })
 
