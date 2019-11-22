@@ -33,6 +33,7 @@ class App extends React.Component {
     fetch("/api/checkToken")
       .then(response => response.json())
       .then(response => {
+        console.log(response, 'hey')
         if (response.status === 200) {
           this.setState({ isUserLoggedIn: true, loading: false });
           return;
@@ -89,7 +90,8 @@ class App extends React.Component {
   };
 
   signOut = () => {
-    fetch("/api/signOut", { method: "GET" }).then(res => {
+    fetch("/api/signOut").then(res => {
+      console.log(res)
       window.location.reload();
     });
   };
@@ -99,7 +101,6 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Nav
-          signOut={this.signOut}
           isUserLoggedIn={isUserLoggedIn}
           loading={loading}
         />
