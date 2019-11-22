@@ -4,8 +4,6 @@ App made with React JS. Open sourced Javascript library used for building User I
 
 ## Installations
 
-<img width="1440" alt="Screen Shot 2019-11-01 at 5 08 05 PM" src="https://user-images.githubusercontent.com/52217063/68056733-41db5f80-fcca-11e9-92ad-c1b4628122a5.png">
-
 ### Express
 
 Express extends Node.js to make webservers easy to write.
