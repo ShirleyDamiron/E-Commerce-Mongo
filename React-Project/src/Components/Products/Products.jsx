@@ -74,7 +74,7 @@ class Products extends React.Component {
         </div>
 
         <div className="products-container">
-          {this.state.products.map(product => {
+          {products.map(product => {
             console.log(product.src, product.price)
             return (
               <figure className="image-container">
