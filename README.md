@@ -40,4 +40,4 @@ Pull requests are welcome.
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/ShirleyDamiron/E-Commerce-Mongo/blob/master/LICENSE)
