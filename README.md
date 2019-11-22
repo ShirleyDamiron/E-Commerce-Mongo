@@ -2,6 +2,10 @@
 
 App made with React JS. Open sourced Javascript library used for building User Interface for singled page applications.
 
+
+## Page
+![](E-Commerce-Mongo/React-Project/public/img/sitPage.png)
+ 
 ## Installations
 
 ### Express
