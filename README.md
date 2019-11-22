@@ -4,7 +4,7 @@ App made with React JS. Open sourced Javascript library used for building User I
 
 
 ## Page
-![GitHub Logo](public/img/sitePage.png)
+![GitHub Logo](React-Project/public/img/sitePage.png)
  
 ## Installations
 
