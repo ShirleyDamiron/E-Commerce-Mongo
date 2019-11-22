@@ -1,6 +1,6 @@
 // const connection = require("./connection.js");
-const {User} = require("./Models/model.js");
-const {signToken} = require("./Auth/auth")
+const {User} = require("../Models/model.js");
+const {signToken} = require("../Auth/auth")
 require("dotenv").config();
 
 // GET getting all users to show

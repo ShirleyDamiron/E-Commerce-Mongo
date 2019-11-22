@@ -2,7 +2,7 @@
   "name": "E-Commerce-Mongo",
   "version": "1.0.0",
   "description": "App made with React JS. Open sourced Javascript library used for building User Interface for singled page applications.",
-  "main": "API/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -24,7 +24,16 @@
   },
   "homepage": "https://github.com/ShirleyDamiron/E-Commerce-Mongo#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
     "concurrently": "^5.0.0",
-    "if-env": "^1.0.4"
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "if-env": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.12",
+    "morgan": "^1.9.1"
   }
 }
