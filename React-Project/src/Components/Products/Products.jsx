@@ -40,6 +40,12 @@ class Products extends React.Component {
   };
 
   render() {
+    let products 
+    if(this.state.filteredProducts.length > 0 ) {
+      products = [...this.state.filteredProducts]
+    } else {
+      products = [...this.state.products]
+    }
     return (
       <>
         <h1>Plaid Me</h1>
