@@ -1,10 +1,6 @@
 # React
 
-App made with React JS. Open sourced Javascript library used for building User Interface for singled page applications.
-
-
-## Page
-![GitHub Logo](React-Project/public/img/sitePage.png)
+App made with React JS. Open sourced Javascript library used for building User Interface for singled page applications.Available to log in and create an account. Use for accessability. Secured by using bcrypt. 
  
 ## Installations
 
@@ -12,6 +8,11 @@ App made with React JS. Open sourced Javascript library used for building User I
 
 Express extends Node.js to make webservers easy to write.
 npm install express --save
+
+### Bcrypt
+
+Brcyrpt is used to hash passwords to keep them secured from any vulnerabilities.
+npm install bcrypt --save
 
 ### Mocha
 
@@ -28,7 +29,7 @@ npm install chai --save
 Designed to make http calls.
 npm install request --save
 
-## Usage
+### Usage
 
 Javascript
 Client scripting language used for creating websites.
