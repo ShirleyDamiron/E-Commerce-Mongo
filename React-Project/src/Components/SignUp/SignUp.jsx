@@ -35,11 +35,9 @@ class SignUp extends React.Component {
     return (
       <>
         <h1>Sign Up!</h1>
-        <form onSubmit={this.onFormSubmit}>
-          {/* <label htmlFor="sign_up_name">Name</label>
-          <input type="text" id="sign_up_name" onChange={this.onInputChange} /> */}
-
-          <label htmlFor="sign_up_email">Email</label>
+        <form onSubmit={this.onFormSubmit} className="sign-in-form">
+        <div className="sign-in-form__input-container">
+          <label htmlFor="sign_up_email" className="label">Email:</label>
           <input
             type="email"
             id="sign_up_email"
@@ -47,8 +45,10 @@ class SignUp extends React.Component {
             onChange={this.onInputChange}
             required
           />
+          </div>
 
-          <label htmlFor="sign_in_password">Password</label>
+          <div className="sign-in-form__input-container">
+          <label htmlFor="sign_in_password" className="label">Password:</label>
           <input
             type="password"
             id="sign_in_password"
@@ -56,8 +56,8 @@ class SignUp extends React.Component {
             onChange={this.onInputChange}
             required
           />
-
-          <input type="submit" value="Submit" />
+          </div>
+          <input type="submit" value="Submit" className="submitButton-signIn" />
         </form>
       </>
     );

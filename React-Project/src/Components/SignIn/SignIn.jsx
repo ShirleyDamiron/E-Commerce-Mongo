@@ -36,8 +36,6 @@ class SignIn extends React.Component {
       <>
         <h1>Sign In!</h1>
         <form onSubmit={this.onFormSubmit} className="sign-in-form">
-          {/* <label htmlFor="sign_in_name">Name</label>
-          <input type="text" id="sign_in_name" /> */}
           <div className="sign-in-form__input-container">
             <label htmlFor="sign_in_email" className="label">
               Email:
