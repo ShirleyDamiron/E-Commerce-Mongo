@@ -67,9 +67,9 @@ class Products extends React.Component {
           </select>
           {/* filter of price */}
           <select className="filterPrice" onChange={this.filterProductsFunc}>
-            <label value="none">Filter By Price</label>
-            <label value="high">Highest to Lowest</label>
-            <label value="low">Lowest to Highest</label>
+            <label for="none">Filter By Price</label>
+            <label for="high">Highest to Lowest</label>
+            <label for="low">Lowest to Highest</label>
           </select>
         </div>
 
