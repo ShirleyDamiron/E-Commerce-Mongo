@@ -25,7 +25,7 @@ class Products extends React.Component {
       if (filterPrice === "low") {
         products.sort(
           (firstProduct, secondProduct) =>
-            firstProduct.price- secondProduct.price
+            firstProduct.price - secondProduct.price
         );
       } else if (filterPrice === "high") {
         products.sort(
@@ -42,9 +42,9 @@ class Products extends React.Component {
   render() {
     let products 
     if(this.state.filteredProducts.length > 0 ) {
-      products = [...this.state.filteredProducts]
+      products = this.state.filteredProducts
     } else {
-      products = [...this.state.products]
+      products = this.state.products
     }
     return (
       <>
@@ -56,7 +56,7 @@ class Products extends React.Component {
           <select
             id="filter"
             className="filterType"
-            onChange={this.filterProductsFunc}
+            onChange={this.filterProducts}
           >
             <option value="none">Filter By Type</option>
             <option value="bottoms">Bottoms</option>
@@ -66,7 +66,7 @@ class Products extends React.Component {
             <option value="skirts">Skirts</option>
           </select>
           {/* filter of price */}
-          <select className="filterPrice" onChange={this.filterProductsFunc}>
+          <select className="filterPrice" onChange={this.filterProducts}>
             <option  value="none">Filter By Price</option>
             <option  value="high">Highest to Lowest</option>
             <option  value="low">Lowest to Highest</option>
@@ -75,7 +75,6 @@ class Products extends React.Component {
 
         <div className="products-container">
           {products.map(product => {
-            console.log(product.src, product.price)
             return (
               <figure className="image-container">
                 <img src={product.src} alt={product.caption} />
