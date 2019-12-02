@@ -19,7 +19,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, err => {
 app.use(express.static("../React-Project/build"));
 app.use(bodyParser());
 app.use(cookieParser());
-app.use((req, res) => {
+app.use((req, res, next) => {
   if (req.get("X-Forwarded-Proto") == "https" || req.hostname == "localhost") {
     next();
   } else if (req.get("X-Forwarded-Proto") != "https" && req.get("X-Forwarded-Port") != "443") {
