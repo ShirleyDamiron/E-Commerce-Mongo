@@ -16,6 +16,11 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 app.use(express.static("../React-Project/build"));
 app.use(bodyParser())
 app.use(cookieParser())
+app.use((req, res) => {
+  if(!req.secure){
+    res.redirect("https://" + req.headers.host + req.url);
+  }
+});
 app.use("/api", routes)
 
 if (process.env.NODE_ENV === "production") {
