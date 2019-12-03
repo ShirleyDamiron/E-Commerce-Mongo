@@ -6,7 +6,7 @@ App made with React JS. Open sourced Javascript library used for building User I
 
 ### Express
 
-Express extends Node.js to make webservers easy to write.
+Express extends Node.js to make web servers easy to write.
 npm install express --save
 
 ### Bcrypt
