@@ -18,6 +18,13 @@
       "sizes": "512x512"
     }	    
   ],
+  "apple-touch-icon": [
+    {
+      "src": "/iconns/apple180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
