@@ -2,9 +2,6 @@
 
 App made with React JS. Open sourced Javascript library used for building User Interface for singled page applications.Available to log in and create an account. Use for accessability. Secured by using bcrypt. 
  
-## Images
-![audit test passing for pwa]("/Audits/afterAudit.png")
- 
  
 ## Installations
 
